@@ -7,21 +7,11 @@ const Counter = () => {
   const counter = useSelector((state) => state.counter);
   const isSeen = useSelector((state) => state.isSeen);
 
-  const incrementHandler = () => {
-    dispatch({ type: "increment" });
-  };
-  const increaseHandler = () => {
-    dispatch({ type: "increase", value: 2 });
-  };
-  const decrementHandler = () => {
-    dispatch({ type: "decrement" });
-  };
-  const resetHandler = () => {
-    dispatch({ type: "reset" });
-  };
-  const toggleCounterHandler = () => {
-    dispatch({ type: "toggleView" });
-  };
+  const incrementHandler = () => {};
+  const increaseHandler = () => {};
+  const decrementHandler = () => {};
+  const resetHandler = () => {};
+  const toggleCounterHandler = () => {};
 
   const counterButtons = isSeen && (
     <>
