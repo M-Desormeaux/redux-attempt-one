@@ -26,6 +26,8 @@ const Counter = () => {
   const counterButtons = isSeen && (
     <>
       <div>
+        <h1>Redux Counter</h1>
+        <div className={classes.value}>{counter}</div>
         <button onClick={decrementHandler}>-1</button>
         <button onClick={incrementHandler}>+1</button>
         <button onClick={increaseHandler}>+2</button>
@@ -38,8 +40,6 @@ const Counter = () => {
 
   return (
     <main className={classes.counter}>
-      <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
       {counterButtons}
     </main>
