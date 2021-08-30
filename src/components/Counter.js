@@ -1,17 +1,28 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./Counter.module.css";
+import { counterActions } from "../store/store";
 
-const Counter = () => {
+export const Counter = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
   const isSeen = useSelector((state) => state.isSeen);
 
-  const incrementHandler = () => {};
-  const increaseHandler = () => {};
-  const decrementHandler = () => {};
-  const resetHandler = () => {};
-  const toggleCounterHandler = () => {};
+  const incrementHandler = () => {
+    dispatch(counterActions.increment());
+  };
+  const increaseHandler = () => {
+    dispatch(counterActions.increase(10));
+  };
+  const decrementHandler = () => {
+    dispatch(counterActions.decrement());
+  };
+  const resetHandler = () => {
+    dispatch(counterActions.reset());
+  };
+  const toggleCounterHandler = () => {
+    dispatch(counterActions.toggleCounter());
+  };
 
   const counterButtons = isSeen && (
     <>
@@ -35,5 +46,3 @@ const Counter = () => {
     </main>
   );
 };
-
-export default Counter;

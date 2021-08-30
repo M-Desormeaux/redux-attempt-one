@@ -10,7 +10,7 @@ const counterState = createSlice({
       state.counter++;
     },
     increase(state, action) {
-      state.counter += action.value;
+      state.counter += action.payload;
     },
     decrement(state) {
       state.counter--;
@@ -25,5 +25,7 @@ const counterState = createSlice({
 });
 
 export const store = configureStore({
-  reducer: counterState,
+  reducer: counterState.reducer,
 });
+
+export const counterActions = counterState.actions;
