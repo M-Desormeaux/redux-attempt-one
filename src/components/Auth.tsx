@@ -1,7 +1,7 @@
 import classes from "./Auth.module.css";
 
 export const Auth = () => {
-  const loginHandler = (event) => {
+  const loginHandler = (event: any) => {
     event.preventDefault();
   };
 

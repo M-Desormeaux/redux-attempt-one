@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import classes from "./Counter.module.css";
 import { counterActions } from "../store/store";
+import { useAppSelector } from "../hooks";
 
 export const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter.value);
-  const isSeen = useSelector((state) => state.counter.isSeen);
+  const counter = useAppSelector((state) => state.counter.value);
+  const isSeen = useAppSelector((state) => state.counter.isSeen);
 
   const num = 5;
 

@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
 import classes from "./Header.module.css";
+import { useAppSelector } from "../hooks";
 
 export const Header = () => {
-  const isAuth = useSelector((state) => state.auth.isAuthenticated);
+  const isAuth = useAppSelector((state) => state.auth.isAuthenticated);
 
   return (
     <header className={classes.header}>

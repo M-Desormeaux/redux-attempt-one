@@ -1,22 +1,26 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialCounterState = { value: 0, isSeen: false };
+interface CounterState {
+  value: number;
+  isSeen: boolean;
+}
+const initialCounterState: CounterState = { value: 0, isSeen: false };
 
 const counterState = createSlice({
   name: "counter", // name
   initialState: initialCounterState, // initial state object
   reducers: {
     increment(state) {
-      state.counter++;
+      state.value++;
     },
-    increase(state, action) {
-      state.counter += action.payload;
+    increase(state, action: PayloadAction<number>) {
+      state.value += action.payload;
     },
     decrement(state) {
-      state.counter--;
+      state.value--;
     },
     reset(state) {
-      state.counter = 0;
+      state.value = 0;
     },
     toggleCounter(state) {
       state.isSeen = !state.isSeen;
@@ -24,7 +28,10 @@ const counterState = createSlice({
   },
 });
 
-const initialAuthState = { isAuthenticated: false };
+interface AuthState {
+  isAuthenticated: boolean;
+}
+const initialAuthState: AuthState = { isAuthenticated: false };
 
 const authState = createSlice({
   name: "auth",
@@ -45,6 +52,11 @@ export const store = configureStore({
     auth: authState.reducer,
   },
 });
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch;
 
 export const counterActions = counterState.actions;
 export const authActions = authState.actions;
