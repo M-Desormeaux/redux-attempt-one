@@ -8,18 +8,20 @@ export const Counter = () => {
   const counter = useSelector((state) => state.counter);
   const isSeen = useSelector((state) => state.isSeen);
 
+  const num = 5
+
   const incrementHandler = () => {
     dispatch(counterActions.increment());
   };
   const increaseHandler = () => {
-    dispatch(counterActions.increase(10));
+    dispatch(counterActions.increase(num));
   };
   const decrementHandler = () => {
     dispatch(counterActions.decrement());
   };
   const resetHandler = () => {
     dispatch(counterActions.reset());
-  };
+  }
   const toggleCounterHandler = () => {
     dispatch(counterActions.toggleCounter());
   };
@@ -31,7 +33,7 @@ export const Counter = () => {
         <div className={classes.value}>{counter}</div>
         <button onClick={decrementHandler}>-1</button>
         <button onClick={incrementHandler}>+1</button>
-        <button onClick={increaseHandler}>+2</button>
+        <button onClick={increaseHandler}>+{num}</button>
       </div>
       <div>
         <button onClick={resetHandler}>reset</button>
