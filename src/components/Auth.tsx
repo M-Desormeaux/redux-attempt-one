@@ -1,8 +1,13 @@
 import classes from "./Auth.module.css";
+import { useAppDispatch } from "../hooks";
+import { authActions } from "../store/auth";
 
 export const Auth = () => {
+  const dispatch = useAppDispatch();
   const loginHandler = (event: any) => {
     event.preventDefault();
+
+    dispatch(authActions.login());
   };
 
   return (

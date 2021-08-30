@@ -1,8 +1,16 @@
 import classes from "./Header.module.css";
-import { useAppSelector } from "../hooks";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { authActions } from "../store/auth";
 
 export const Header = () => {
+  const dispatch = useAppDispatch();
   const isAuth = useAppSelector((state) => state.auth.isAuthenticated);
+
+  const logoutHandler = (event: any) => {
+    event.preventDefault();
+
+    dispatch(authActions.logout());
+  };
 
   return (
     <header className={classes.header}>
@@ -17,7 +25,7 @@ export const Header = () => {
               <a href="/">My Sales</a>
             </li>
             <li>
-              <button>Logout</button>
+              <button onClick={logoutHandler}>Logout</button>
             </li>
           </ul>
         </nav>
