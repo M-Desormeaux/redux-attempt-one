@@ -5,10 +5,10 @@ import { counterActions } from "../store/store";
 
 export const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const isSeen = useSelector((state) => state.isSeen);
+  const counter = useSelector((state) => state.counter.value);
+  const isSeen = useSelector((state) => state.counter.isSeen);
 
-  const num = 5
+  const num = 5;
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());
@@ -21,7 +21,7 @@ export const Counter = () => {
   };
   const resetHandler = () => {
     dispatch(counterActions.reset());
-  }
+  };
   const toggleCounterHandler = () => {
     dispatch(counterActions.toggleCounter());
   };
