@@ -10,7 +10,6 @@ export const Header = () => {
     event.preventDefault();
 
     dispatch(authActions.logout());
-    localStorage.setItem("auth", "false");
   };
 
   return (
