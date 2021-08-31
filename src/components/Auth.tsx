@@ -8,6 +8,7 @@ export const Auth = () => {
     event.preventDefault();
 
     dispatch(authActions.login());
+    localStorage.setItem("auth", "true");
   };
 
   return (

@@ -10,6 +10,7 @@ export const Header = () => {
     event.preventDefault();
 
     dispatch(authActions.logout());
+    localStorage.setItem("auth", "false");
   };
 
   return (
@@ -17,17 +18,7 @@ export const Header = () => {
       <h1>Redux Auth</h1>
       {isAuth && (
         <nav>
-          <ul>
-            <li>
-              <a href="/">My Products</a>
-            </li>
-            <li>
-              <a href="/">My Sales</a>
-            </li>
-            <li>
-              <button onClick={logoutHandler}>Logout</button>
-            </li>
-          </ul>
+          <button onClick={logoutHandler}>Logout</button>
         </nav>
       )}
     </header>
